@@ -1,0 +1,86 @@
+{
+    "categories" : [
+        {
+            "name": "Programming"
+        },
+        {
+            "name": "Designing"
+        },
+        {
+            "name": "Corporative"
+        },
+        {
+            "name": "Others"
+        }
+    ],
+    "upcoming_course" : [
+        {
+            "name" : "Laravel",
+            "date" : "04 jul 2021",
+            "time" : "6:00pm - 7:00pm"
+        },
+        {
+            "name" : "Flutter",
+            "date" : "08 jul 2021",
+            "time" : "12:00pm - 1:00pm"
+        },
+        {
+            "name" : "Vue.js",
+            "date" : "10 Aug 2021",
+            "time" : "7:00am - 8:00am"
+        },
+        {
+            "name" : "Web Designing",
+            "date" : "20 Aug 2021",
+            "time" : "6:00pm - 7:00pm"
+        }
+    ],
+    "trending_course" : [
+        {
+            "image" : "https://laracasts.s3.amazonaws.com/series/thumbnails/laravel-6-from-scratch.png",
+            "name" : "Laravel PHP",
+            "duration" : "3 Months"
+        },
+        {
+            "image" : "https://fluttergems.dev/media/logo.png",
+            "name" : "Flutter",
+            "duration" : "1 Months"
+        },
+        {
+            "image" : "https://www.wgu.edu/content/dam/web-sites/blog-newsroom/blog/images/national/2019/december/land-your-first-web-developer-job.jpg",
+            "name" : "Web Designing",
+            "duration" : "2 Months"
+        },
+        {
+            "image" : "https://pbs.twimg.com/profile_images/752518047785680896/UDRhCmtb.jpg",
+            "name" : "Vue.js",
+            "duration" : "4 Months"
+        }
+    ],
+    "testimonials" : [
+        {
+            "name" : "Saroj Kumar Yadav",
+            "status" : "BCA 2nd Year",
+            "description" : "जो किसी के Fan है उनका कभी कोई Fan नहीं बनता ,बिना दुरी तय किये हुए कही दूर आप नहीं पहुंच सकते सफलता तक पहुंचने के लिए असफलता के Road से गुजरनी पड़ेगी",
+            "image" : "https://miro.medium.com/max/1187/1*0FqDC0_r1f5xFz3IywLYRA.jpeg"
+        },
+        {
+            "name" : "Soma Yadav",
+            "status" : "BCA 2nd Year",
+            "description" : "जो किसी के Fan है उनका कभी कोई Fan नहीं बनता ,बिना दुरी तय किये हुए कही दूर आप नहीं पहुंच सकते सफलता तक पहुंचने के लिए असफलता के Road से गुजरनी पड़ेगी",
+            "image" : "https://cdn1.vectorstock.com/i/1000x1000/73/20/cartoon-female-student-with-laptop-studying-online-vector-34347320.jpg"
+        },
+        {
+            "name" : "Jyoti Yadav",
+            "status" : "BCA 2nd Year",
+            "description" : "जो किसी के Fan है उनका कभी कोई Fan नहीं बनता ,बिना दुरी तय किये हुए कही दूर आप नहीं पहुंच सकते सफलता तक पहुंचने के लिए असफलता के Road से गुजरनी पड़ेगी",
+            "image" : "https://cdn5.vectorstock.com/i/1000x1000/49/34/young-pretty-woman-programmer-sitting-at-the-vector-21054934.jpg"
+        },
+        {
+            "name" : "Siddharth Kumar Yadav",
+            "status" : "BCA 2nd Year",
+            "description" : "जो किसी के Fan है उनका कभी कोई Fan नहीं बनता ,बिना दुरी तय किये हुए कही दूर आप नहीं पहुंच सकते सफलता तक पहुंचने के लिए असफलता के Road से गुजरनी पड़ेगी",
+            "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzkCYmXBcphq4jXBJvISegBkUPVZ9QAjO2L-vmJlx9jjJDSPV2iFDIcxkdKIBwmGNDgYE&usqp=CAU"
+        }
+    ]
+}

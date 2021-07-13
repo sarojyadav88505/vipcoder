@@ -43,7 +43,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       // Bottom NAvigationBar End
       drawer: myDrawer(context), //mydrawer widget is in component folder
       appBar: AppBar(
-        title: Text("VIP CODING"),
+        title: Text("ViP CODING"),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),

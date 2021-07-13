@@ -38,6 +38,7 @@ Widget courseType(BuildContext context) {
                             MaterialPageRoute(
                               builder: (context) => CoursePage(
                                 name: mydata['name'],
+                                id: mydata['id'],
                               ),
                             ),
                           );

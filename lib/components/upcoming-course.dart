@@ -6,8 +6,8 @@ import 'package:vipcoder/components/title.dart';
 import 'package:vipcoder/components/upcoming-course-Box.dart';
 
 Future getUpcomingCourse() async {
-  var response = await Api().getData('upcoming_course');
-  var data = json.decode(response.body);
+  var response = await Api().getData('upcoming');
+  var data = json.decode(response.body)['data'];
   return data;
 }
 
@@ -31,7 +31,7 @@ Widget upComingCourse(BuildContext context) {
                       var mydata = snapshot.data[index];
 
                       return upComingCourseBox(
-                          mydata['name'], mydata['date'], mydata['time']);
+                          mydata['course'], mydata['date'], mydata['time']);
                     },
                   );
                 } else if (snapshot.hasError) {

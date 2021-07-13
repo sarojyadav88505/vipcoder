@@ -26,6 +26,7 @@ dependencies:
   carousel_pro_nullsafety: ^1.0.2
   widget_circular_animator: ^1.0.0
   http: ^0.13.3
+  flutter_html: ^2.1.0
 
   
 

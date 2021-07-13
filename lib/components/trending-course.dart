@@ -6,7 +6,7 @@ import 'package:vipcoder/components/title.dart';
 import 'package:vipcoder/components/trending-Course-Box.dart';
 
 Future getTrendingCourse() async {
-  var response = await Api().getData('trending_course');
+  var response = await Api().getData('trending');
   var data = json.decode(response.body);
   return data;
 }

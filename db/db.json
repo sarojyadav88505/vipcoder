@@ -13,7 +13,7 @@
             "name": "Others"
         }
     ],
-    "upcoming_course" : [
+    "upcoming" : [
         {
             "name" : "Laravel",
             "date" : "04 jul 2021",
@@ -35,7 +35,7 @@
             "time" : "6:00pm - 7:00pm"
         }
     ],
-    "trending_course" : [
+    "trending" : [
         {
             "image" : "https://laracasts.s3.amazonaws.com/series/thumbnails/laravel-6-from-scratch.png",
             "name" : "Laravel PHP",

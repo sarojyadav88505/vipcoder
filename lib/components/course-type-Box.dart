@@ -5,11 +5,11 @@ Widget courseTypeBox(String title) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 5),
     child: Chip(
-      backgroundColor: trendingBoxColor,
+      backgroundColor: primaryColor,
       label: Text(
         "$title",
         style: TextStyle(
-            fontSize: 15, fontWeight: FontWeight.w600, color: ancentColor),
+            fontSize: 15, fontWeight: FontWeight.w600, color: Colors.white),
       ),
     ),
   );

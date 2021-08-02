@@ -21,7 +21,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       // Start Bottom NavigationBar is Used For Company Highlight
       bottomNavigationBar: Container(
         width: MediaQuery.of(context).size.width,
-        height: 18,
+        height: 16,
         alignment: Alignment.center,
         child: RichText(
           text: TextSpan(
@@ -68,7 +68,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             // Popular Courses
             popularCourse(),
             // Testimonial
-            testimonial(context),
+            // testimonial(context),
           ],
         ),
       ),

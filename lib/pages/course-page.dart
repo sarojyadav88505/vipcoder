@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:vipcoder/api/api.dart';
+import 'package:vipcoder/const/const.dart';
 import 'package:vipcoder/pages/syllabus.dart';
 
 class CoursePage extends StatefulWidget {
@@ -52,7 +53,7 @@ class _CoursePageState extends State<CoursePage> {
                             width: 90,
                             height: 55,
                             child: Image.network(
-                              "http://192.168.1.4:8000/" + mydata['image'],
+                              url + mydata['image'],
                             ),
                           ),
                           title: Text(

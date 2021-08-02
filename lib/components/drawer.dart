@@ -7,25 +7,26 @@ Widget myDrawer(BuildContext context) {
     child: ListView(
       children: [
         UserAccountsDrawerHeader(
-            currentAccountPicture: CircleAvatar(
-              child: Text(
-                "VIP",
-                style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey),
-              ),
-              backgroundColor: Colors.blue[100],
+          currentAccountPicture: CircleAvatar(
+            child: Text(
+              "VIP",
+              style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey),
             ),
-            accountName: Text("VIPCODING"),
-            accountEmail: Text("vipcoding.np@gmail.com")),
+            backgroundColor: Colors.blue[100],
+          ),
+          accountName: Text("VIPCODING"),
+          accountEmail: Text("vipcoding.np@gmail.com"),
+        ),
         ListTile(
           onTap: () {
             Navigator.pop(context);
           },
           leading: Icon(
             Icons.space_dashboard_rounded,
-            color: ancentColor,
+            color: primaryColor,
           ),
           title: Text("Dashboard"),
         ),
@@ -33,7 +34,7 @@ Widget myDrawer(BuildContext context) {
           onTap: () {},
           leading: Icon(
             Icons.local_offer_sharp,
-            color: ancentColor,
+            color: primaryColor,
           ),
           title: Text("Offers"),
         ),
@@ -42,43 +43,72 @@ Widget myDrawer(BuildContext context) {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => CertificateScreen()));
           },
-          leading: Icon(Icons.document_scanner_outlined),
+          leading: Icon(
+            Icons.document_scanner_outlined,
+            color: primaryColor,
+          ),
           title: Text("Verify Your Certificate"),
         ),
         ListTile(
           onTap: () {},
-          leading: Icon(Icons.image_outlined),
+          leading: Icon(
+            Icons.image_outlined,
+            color: primaryColor,
+          ),
           title: Text("Image Gallery"),
         ),
         Divider(
-          color: ancentColor,
+          color: primaryColor,
         ),
         ListTile(
           onTap: () {},
-          leading: Icon(Icons.web_sharp),
+          leading: Icon(
+            Icons.web_sharp,
+            color: primaryColor,
+          ),
           title: Text("Blog"),
         ),
         ListTile(
           onTap: () {},
-          leading: Icon(Icons.emoji_events_outlined),
+          leading: Icon(
+            Icons.emoji_events_outlined,
+            color: primaryColor,
+          ),
           title: Text("Events"),
+        ),
+        ListTile(
+          onTap: () {},
+          leading: Icon(
+            Icons.download,
+            color: primaryColor,
+          ),
+          title: Text("Download"),
         ),
         Divider(),
         ListTile(
           onTap: () {},
-          leading: Icon(Icons.feedback_rounded),
+          leading: Icon(
+            Icons.facebook_sharp,
+            color: primaryColor,
+          ),
+          title: Text("Facebook Page"),
+        ),
+        Divider(),
+        ListTile(
+          onTap: () {},
+          leading: Icon(
+            Icons.feedback_rounded,
+            color: primaryColor,
+          ),
           title: Text("Feedback"),
         ),
         ListTile(
           onTap: () {},
-          leading: Icon(Icons.info_outline),
+          leading: Icon(
+            Icons.info_outline,
+            color: primaryColor,
+          ),
           title: Text("About us"),
-        ),
-        Divider(),
-        ListTile(
-          onTap: () {},
-          leading: Icon(Icons.facebook_sharp),
-          title: Text("Facebook Page"),
         ),
       ],
     ),

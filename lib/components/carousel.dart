@@ -18,7 +18,7 @@ Widget carousel(BuildContext context) {
               fit: BoxFit.cover),
           Image.network(
               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwy9jn0n5--QIO8d2ASPKwkby4D0zdCHAeiA&usqp=CAU',
-              fit: BoxFit.cover)
+              fit: BoxFit.cover),
         ],
       ));
 }

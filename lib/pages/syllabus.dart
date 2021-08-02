@@ -13,6 +13,7 @@ class SyllabusScreen extends StatefulWidget {
 }
 
 class _SyllabusScreenState extends State<SyllabusScreen> {
+  GlobalKey<FormState> _key = new GlobalKey<FormState>();
   var data;
   bool isLoading = true;
   Future getsyllabus(int id) async {
@@ -46,26 +47,57 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                 context: context,
                 builder: (builder) {
                   return AlertDialog(
-                    title: Text("Apply Now"),
+                    title: Text("Enquiry Now"),
                     content: Container(
-                      height: 200,
-                      child: Column(
-                        children: [
-                          TextFormField(
-                            decoration: InputDecoration(hintText: 'Full Name'),
+                      height: 300,
+                      child: SingleChildScrollView(
+                        child: Form(
+                          key: _key,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Enquiry about👉 " + data['name']),
+                              Divider(color: ancentColor),
+                              TextFormField(
+                                validator: (value) =>
+                                    value!.isEmpty ? 'required' : null,
+                                controller: name,
+                                decoration:
+                                    InputDecoration(hintText: 'Full Name'),
+                              ),
+                              TextFormField(
+                                validator: (value) =>
+                                    value!.isEmpty ? 'required' : null,
+                                controller: email,
+                                decoration: InputDecoration(hintText: 'E-mail'),
+                                keyboardType: TextInputType.emailAddress,
+                              ),
+                              TextFormField(
+                                validator: (value) =>
+                                    value!.isEmpty ? 'required' : null,
+                                controller: mobile,
+                                decoration:
+                                    InputDecoration(hintText: 'mobile No'),
+                                keyboardType: TextInputType.phone,
+                              ),
+                              TextFormField(
+                                validator: (value) =>
+                                    value!.isEmpty ? 'required' : null,
+                                controller: address,
+                                decoration:
+                                    InputDecoration(hintText: 'Address'),
+                              ),
+                              TextFormField(
+                                validator: (value) =>
+                                    value!.isEmpty ? 'required' : null,
+                                controller: message,
+                                decoration:
+                                    InputDecoration(hintText: 'Message'),
+                                maxLines: 4,
+                              ),
+                            ],
                           ),
-                          TextFormField(
-                            decoration: InputDecoration(hintText: 'E-mail'),
-                            keyboardType: TextInputType.emailAddress,
-                          ),
-                          TextFormField(
-                            decoration: InputDecoration(hintText: 'mobile No'),
-                            keyboardType: TextInputType.phone,
-                          ),
-                          TextFormField(
-                            decoration: InputDecoration(hintText: 'Address'),
-                          ),
-                        ],
+                        ),
                       ),
                     ),
                     actions: [
@@ -84,8 +116,44 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.all(primaryColor)),
-                              onPressed: () {},
-                              child: Text('Apply Now')),
+                              onPressed: () async {
+                                if (_key.currentState!.validate()) {
+                                  // write a code which send json data to API
+                                  Map jsonData = {
+                                    'name': name.text,
+                                    'email': email.text,
+                                    'mobile': mobile.text,
+                                    'address': address.text,
+                                    'message': message.text,
+                                    'course_id': data['id'],
+                                  };
+
+                                  var response =
+                                      await Api().postData(jsonData, 'enquiry');
+                                  var result = json.decode(response.body);
+                                  print(result);
+                                  if (result['message'] == 'success') {
+                                    Navigator.pop(context);
+                                    showDialog(
+                                        context: context,
+                                        builder: (builder) {
+                                          return AlertDialog(
+                                            title: Text("Message"),
+                                            content: Text(
+                                                "Thank You!! \nWe will contact you Soon"),
+                                            actions: [
+                                              ElevatedButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Text("Ok"))
+                                            ],
+                                          );
+                                        });
+                                  }
+                                }
+                              },
+                              child: Text('Send')),
                         ],
                       )
                     ],
@@ -93,7 +161,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                 });
           },
           child: Text(
-            "Apply Now",
+            "Enquiry",
             style: TextStyle(fontSize: 18),
           ),
         ),
@@ -113,7 +181,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                     width: width,
                     height: 200,
                     child: Image.network(
-                      "http://192.168.1.4:8000/" + data['image'],
+                      url + data['image'],
                       fit: BoxFit.cover,
                     ),
                   ),

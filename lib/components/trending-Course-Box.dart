@@ -3,44 +3,28 @@ import 'package:vipcoder/const/const.dart';
 
 Widget polularCourseBox(String name, String duration, String image) {
   return Card(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20),
-    ),
-    color: primaryColor,
+    // color: primaryColor,
     child: Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Expanded(
-              child: CircleAvatar(
-                radius: 60,
-                backgroundImage: NetworkImage('$image'),
-              ),
+      padding: EdgeInsets.all(8),
+      height: double.infinity,
+      width: double.infinity,
+      child: Column(
+        children: [
+          Expanded(
+            flex: 1,
+            child: Image(
+              image: NetworkImage(url + '$image'),
+              fit: BoxFit.cover,
             ),
-            SizedBox(height: 10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "$name",
-                  textScaleFactor: 1.5,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                SizedBox(height: 5),
-                Text(
-                  "Duration: $duration",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w600, color: Colors.black),
-                )
-              ],
-            ),
-          ],
-        ),
+          ),
+          SizedBox(height: 10),
+          Text(
+            "$name",
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),
+          ),
+          Text("Duration: $duration")
+        ],
       ),
     ),
   );

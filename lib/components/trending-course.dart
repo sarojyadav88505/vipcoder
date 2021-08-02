@@ -6,7 +6,7 @@ import 'package:vipcoder/components/title.dart';
 import 'package:vipcoder/components/trending-Course-Box.dart';
 
 Future getTrendingCourse() async {
-  var response = await Api().getData('trending');
+  var response = await Api().getData('trendingcourse');
   var data = json.decode(response.body);
   return data;
 }
@@ -29,8 +29,12 @@ Widget popularCourse() {
                   itemCount: snapshot.data.length,
                   itemBuilder: (BuildContext context, int index) {
                     var mydata = snapshot.data[index];
+                    // print(mydata['name'].toString());
                     return polularCourseBox(
-                        mydata['name'], mydata['duration'], mydata['image']);
+                      mydata['name'],
+                      mydata['duration'],
+                      mydata['image'],
+                    );
                   },
                 );
               } else if (snapshot.hasError) {

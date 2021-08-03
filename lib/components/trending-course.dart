@@ -31,9 +31,11 @@ Widget popularCourse() {
                     var mydata = snapshot.data[index];
                     // print(mydata['name'].toString());
                     return polularCourseBox(
+                      context,
                       mydata['name'],
                       mydata['duration'],
                       mydata['image'],
+                      mydata['id'],
                     );
                   },
                 );

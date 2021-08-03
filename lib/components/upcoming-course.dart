@@ -31,7 +31,7 @@ Widget upComingCourse(BuildContext context) {
                       itemBuilder: (BuildContext context, int index) {
                         var mydata = snapshot.data[index];
 
-                        return upComingCourseBox(
+                        return upComingCourseBox(context, mydata['course_id'],
                             mydata['course'], mydata['date'], mydata['time']);
                       },
                     );

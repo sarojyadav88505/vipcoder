@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:vipcoder/const/const.dart';
+import 'package:vipcoder/pages/syllabus.dart';
 
-Widget upComingCourseBox(String name, String date, String time) {
+Widget upComingCourseBox(
+    BuildContext context, int courseID, String name, String date, String time) {
   return Card(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(40),
@@ -19,12 +21,22 @@ Widget upComingCourseBox(String name, String date, String time) {
               children: [
                 SizedBox(height: 5),
                 Expanded(
-                  child: Text(
-                    "$name",
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SyllabusScreen(
+                                    id: courseID,
+                                  )));
+                    },
+                    child: Text(
+                      "$name",
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
                   ),
                 ),
                 Row(

@@ -29,6 +29,8 @@ class _CoursePageState extends State<CoursePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Image.network(
+                'https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif'),
             FutureBuilder(
               future: getCourses(widget.id!),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -54,6 +56,7 @@ class _CoursePageState extends State<CoursePage> {
                             height: 55,
                             child: Image.network(
                               url + mydata['image'],
+                              fit: BoxFit.cover,
                             ),
                           ),
                           title: Text(
@@ -69,7 +72,7 @@ class _CoursePageState extends State<CoursePage> {
                 } else if (snapshot.hasError) {
                   return Text("Error");
                 } else {
-                  return Text("Loading...");
+                  return Image.asset('assets/loading.gif');
                 }
               },
             )

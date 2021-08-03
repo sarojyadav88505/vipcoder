@@ -1,30 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:vipcoder/const/const.dart';
+import 'package:vipcoder/pages/syllabus.dart';
 
-Widget polularCourseBox(String name, String duration, String image) {
-  return Card(
-    // color: primaryColor,
-    child: Container(
-      padding: EdgeInsets.all(8),
-      height: double.infinity,
-      width: double.infinity,
-      child: Column(
-        children: [
-          Expanded(
-            flex: 1,
-            child: Image(
-              image: NetworkImage(url + '$image'),
-              fit: BoxFit.cover,
+Widget polularCourseBox(
+    BuildContext context, String name, String duration, String image, int id) {
+  return InkWell(
+    onTap: () {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => SyllabusScreen(
+                    id: id,
+                  )));
+    },
+    child: Card(
+      child: Container(
+        height: double.infinity,
+        width: double.infinity,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Image.network(
+                url + '$image',
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          SizedBox(height: 10),
-          Text(
-            "$name",
-            style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),
-          ),
-          Text("Duration: $duration")
-        ],
+            SizedBox(height: 5),
+            Text(
+              "$name",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.black),
+            ),
+            Text("Duration: $duration")
+          ],
+        ),
       ),
     ),
   );

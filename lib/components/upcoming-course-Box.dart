@@ -106,63 +106,63 @@ Widget upComingCourseBox(BuildContext context, int courseID, String name,
                             builder: (builder) {
                               return AlertDialog(
                                 title: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Text("Fill Details"),
+                                    Text("Fill Details."),
                                     Container(
-                                      height: 30,
-                                      width: 40,
+                                      height: 25,
+                                      width: 35,
                                       child: Image.asset('assets/form.png'),
                                     )
                                   ],
                                 ),
                                 content: Container(
-                                  height: 300,
+                                  height: 250,
                                   child: Form(
                                     key: _key,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text("You are Applying For "
-                                            '$name'
-                                            " Course"),
-                                        Divider(color: ancentColor),
-                                        TextFormField(
-                                          validator: (value) => value!.isEmpty
-                                              ? 'required'
-                                              : null,
-                                          controller: studentName,
-                                          decoration: InputDecoration(
-                                              hintText: 'Full Name'),
-                                        ),
-                                        TextFormField(
-                                          validator: (value) => value!.isEmpty
-                                              ? 'required'
-                                              : null,
-                                          controller: email,
-                                          decoration: InputDecoration(
-                                              hintText: 'E-mail'),
-                                          keyboardType:
-                                              TextInputType.emailAddress,
-                                        ),
-                                        TextFormField(
-                                          validator: (value) => value!.isEmpty
-                                              ? 'required'
-                                              : null,
-                                          controller: mobile,
-                                          decoration: InputDecoration(
-                                              hintText: 'mobile No'),
-                                          keyboardType: TextInputType.phone,
-                                        ),
-                                        TextFormField(
-                                          validator: (value) => value!.isEmpty
-                                              ? 'required'
-                                              : null,
-                                          controller: address,
-                                          decoration: InputDecoration(
-                                              hintText: 'Address'),
-                                        ),
-                                      ],
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Divider(color: ancentColor),
+                                          TextFormField(
+                                            validator: (value) => value!.isEmpty
+                                                ? 'required'
+                                                : null,
+                                            controller: studentName,
+                                            decoration: InputDecoration(
+                                                hintText: 'Full Name'),
+                                          ),
+                                          TextFormField(
+                                            validator: (value) => value!.isEmpty
+                                                ? 'required'
+                                                : null,
+                                            controller: email,
+                                            decoration: InputDecoration(
+                                                hintText: 'E-mail'),
+                                            keyboardType:
+                                                TextInputType.emailAddress,
+                                          ),
+                                          TextFormField(
+                                            validator: (value) => value!.isEmpty
+                                                ? 'required'
+                                                : null,
+                                            controller: mobile,
+                                            decoration: InputDecoration(
+                                                hintText: 'mobile No'),
+                                            keyboardType: TextInputType.phone,
+                                          ),
+                                          TextFormField(
+                                            validator: (value) => value!.isEmpty
+                                                ? 'required'
+                                                : null,
+                                            controller: address,
+                                            decoration: InputDecoration(
+                                                hintText: 'Address'),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -203,6 +203,12 @@ Widget upComingCourseBox(BuildContext context, int courseID, String name,
                                             print(result);
                                             if (result['message'] ==
                                                 'success') {
+                                              // Clear Text Editing Controller
+                                              studentName.clear();
+                                              email.clear();
+                                              mobile.clear();
+                                              address.clear();
+
                                               Navigator.pop(context);
                                               // Message Send Vayo Vaneyra Popup Dialog ko design Start
                                               showDialog(
@@ -210,6 +216,9 @@ Widget upComingCourseBox(BuildContext context, int courseID, String name,
                                                 builder: (builder) {
                                                   return AlertDialog(
                                                     title: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
                                                       children: [
                                                         Text(
                                                           "Message",
@@ -230,9 +239,17 @@ Widget upComingCourseBox(BuildContext context, int courseID, String name,
                                                     content: Container(
                                                       height: 80,
                                                       child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
                                                         children: [
-                                                          Text('Thank You🙏'),
+                                                          Text(
+                                                              '🙏 Thank You 🙏'),
+                                                          SizedBox(height: 5),
                                                           Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
                                                             children: [
                                                               Text(
                                                                 "Message Sent",
@@ -245,18 +262,30 @@ Widget upComingCourseBox(BuildContext context, int courseID, String name,
                                                               ),
                                                             ],
                                                           ),
+                                                          SizedBox(height: 5),
                                                           Text(
-                                                              'We Will Contact You Shortly')
+                                                            'We Will Contact You Shortly.',
+                                                          )
                                                         ],
                                                       ),
                                                     ),
                                                     actions: [
                                                       ElevatedButton(
-                                                          onPressed: () {
-                                                            Navigator.pop(
-                                                                context);
-                                                          },
-                                                          child: Text("Ok"))
+                                                        style: ButtonStyle(
+                                                            backgroundColor:
+                                                                MaterialStateProperty
+                                                                    .all(
+                                                                        primaryColor)),
+                                                        onPressed: () {
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                        child: Text(
+                                                          "Ok",
+                                                          style: TextStyle(
+                                                              color: textColor),
+                                                        ),
+                                                      ),
                                                     ],
                                                   );
                                                 },

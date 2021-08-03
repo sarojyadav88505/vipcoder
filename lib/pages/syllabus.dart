@@ -106,13 +106,15 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ElevatedButton(
-                              style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all(Colors.red)),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: Text('Cancel')),
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.red),
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text('Cancel'),
+                          ),
                           ElevatedButton(
                               style: ButtonStyle(
                                   backgroundColor:
@@ -134,6 +136,12 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                                   var result = json.decode(response.body);
                                   print(result);
                                   if (result['message'] == 'success') {
+                                    // Clear Text Editing Controller
+                                    studentName.clear();
+                                    email.clear();
+                                    mobile.clear();
+                                    address.clear();
+                                    message.clear();
                                     Navigator.pop(context);
                                     showDialog(
                                         context: context,

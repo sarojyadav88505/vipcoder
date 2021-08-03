@@ -20,7 +20,7 @@ Widget upComingCourse(BuildContext context) {
         child: SingleChildScrollView(
           child: Container(
               width: MediaQuery.of(context).size.width,
-              height: 148,
+              height: 150,
               child: FutureBuilder(
                 future: getUpcomingCourse(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -31,8 +31,15 @@ Widget upComingCourse(BuildContext context) {
                       itemBuilder: (BuildContext context, int index) {
                         var mydata = snapshot.data[index];
 
-                        return upComingCourseBox(context, mydata['course_id'],
-                            mydata['course'], mydata['date'], mydata['time']);
+                        return upComingCourseBox(
+                          context,
+                          mydata['course_id'],
+                          mydata['course'],
+                          mydata['date'],
+                          mydata['time'],
+                          mydata['type'],
+                          mydata['id'],
+                        );
                       },
                     );
                   } else if (snapshot.hasError) {

@@ -44,6 +44,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
           ),
           onPressed: () {
             showDialog(
+                barrierDismissible: false,
                 context: context,
                 builder: (builder) {
                   return AlertDialog(
@@ -61,7 +62,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                               TextFormField(
                                 validator: (value) =>
                                     value!.isEmpty ? 'required' : null,
-                                controller: name,
+                                controller: studentName,
                                 decoration:
                                     InputDecoration(hintText: 'Full Name'),
                               ),
@@ -120,7 +121,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                                 if (_key.currentState!.validate()) {
                                   // write a code which send json data to API
                                   Map jsonData = {
-                                    'name': name.text,
+                                    'name': studentName.text,
                                     'email': email.text,
                                     'mobile': mobile.text,
                                     'address': address.text,

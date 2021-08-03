@@ -8,7 +8,7 @@ Widget testimonialBox(BuildContext context, String name, String status,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(15),
     ),
-    color: demo,
+    color: textColor,
     child: Container(
       width: MediaQuery.of(context).size.width,
       child: Row(

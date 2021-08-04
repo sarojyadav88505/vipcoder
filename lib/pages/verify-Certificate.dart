@@ -84,7 +84,7 @@ class _CertificateScreenState extends State<CertificateScreen> {
                       ElevatedButton(
                         style: ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all(ancentColor)),
+                                MaterialStateProperty.all(primaryColor)),
                         onPressed: () async {
                           if (_key.currentState!.validate()) {
                             var response = await Api()
@@ -96,7 +96,10 @@ class _CertificateScreenState extends State<CertificateScreen> {
                                   context: context,
                                   builder: (builder) {
                                     return AlertDialog(
-                                      title: Text('sorry😢'),
+                                      title: Text(
+                                        'sorry😢',
+                                        style: TextStyle(fontSize: 28),
+                                      ),
                                       content: Container(
                                         height: 40,
                                         child: Column(
@@ -129,33 +132,69 @@ class _CertificateScreenState extends State<CertificateScreen> {
                                             fontWeight: FontWeight.bold),
                                       ),
                                       content: Container(
-                                        height: 80,
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              "This Certificate Belongs To",
-                                              style: TextStyle(
-                                                  color: Colors.green,
-                                                  fontSize: 18),
-                                            ),
-                                            Text(
-                                              data[0]['name'],
-                                              style: TextStyle(
-                                                  color: primaryColor,
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w800),
-                                            ),
-                                            SizedBox(height: 5),
-                                            Text(
-                                              data[0]['course'],
-                                              style: TextStyle(
-                                                  color: primaryColor,
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w800),
-                                            ),
-                                          ],
+                                        height: 135,
+                                        // width: 250,
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Divider(),
+                                              RichText(
+                                                text: TextSpan(
+                                                  children: [
+                                                    TextSpan(
+                                                      text:
+                                                          "THIS CERTIFICATE IS PROUDLY PRESENTED TO ",
+                                                      style: TextStyle(
+                                                          color: Colors.green,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          fontSize: 16),
+                                                    ),
+                                                    TextSpan(
+                                                      text: data[0]['name'],
+                                                      style: TextStyle(
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .underline,
+                                                          color: primaryColor,
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                          fontSize: 22),
+                                                    ),
+                                                    TextSpan(
+                                                      text:
+                                                          " BY VIPCODING FOR SUCCESSFUL COMPLETION OF COURSE ",
+                                                      style: TextStyle(
+                                                          color: Colors.green,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          fontSize: 16),
+                                                    ),
+                                                    TextSpan(
+                                                      text: data[0]['course'],
+                                                      style: TextStyle(
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .underline,
+                                                          color: primaryColor,
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                          fontSize: 22),
+                                                    ),
+                                                    TextSpan(
+                                                        text: '.',
+                                                        style: TextStyle(
+                                                            color: Colors.green,
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                            fontSize: 16))
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       actions: [
@@ -163,7 +202,8 @@ class _CertificateScreenState extends State<CertificateScreen> {
                                             onPressed: () {
                                               Navigator.pop(context);
                                             },
-                                            child: Text("OK"))
+                                            child: Text(
+                                                "verify Another Certificate"))
                                       ],
                                     );
                                   });

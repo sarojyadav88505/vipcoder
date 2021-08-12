@@ -1,24 +1,47 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
+import 'package:vipcoder/api/api.dart';
+import 'package:vipcoder/const/const.dart';
 
 Widget carousel(BuildContext context) {
-  return SizedBox(
-      height: 250.0,
-      width: MediaQuery.of(context).size.width,
-      child: Carousel(
-        dotBgColor: Colors.transparent,
-        dotPosition: DotPosition.bottomLeft,
-        dotSize: 5,
-        images: [
-          Image.network(
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbzhahkqZEXcGj9vcOM9kx4-yOtMgt9u7kfA&usqp=CAU',
-              fit: BoxFit.cover),
-          Image.network(
-              'https://www.elegantthemes.com/blog/wp-content/uploads/2020/02/000-Online-Code-Editors.png',
-              fit: BoxFit.cover),
-          Image.network(
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwy9jn0n5--QIO8d2ASPKwkby4D0zdCHAeiA&usqp=CAU',
-              fit: BoxFit.cover),
-        ],
-      ));
+  Future getSlide() async {
+    var response = await Api().getData('slide');
+    var data = json.decode(response.body);
+    return data;
+  }
+
+  return FutureBuilder(
+    future: getSlide(),
+    builder: (BuildContext context, AsyncSnapshot snapshot) {
+      return snapshot.data == null
+          ? Center(
+              child: CircularProgressIndicator(),
+            )
+          : SizedBox(
+              height: 250.0,
+              width: MediaQuery.of(context).size.width,
+              child: Carousel(
+                dotBgColor: Colors.transparent,
+                dotPosition: DotPosition.bottomLeft,
+                dotSize: 5,
+                dotSpacing: 10,
+                animationDuration: Duration(seconds: 1),
+                images: [
+                  Image.network(url + snapshot.data[0]['image'],
+                      fit: BoxFit.cover),
+                  Image.network(url + snapshot.data[1]['image'],
+                      fit: BoxFit.cover),
+                  Image.network(url + snapshot.data[2]['image'],
+                      fit: BoxFit.cover),
+                  Image.network(url + snapshot.data[3]['image'],
+                      fit: BoxFit.cover),
+                  Image.network(url + snapshot.data[4]['image'],
+                      fit: BoxFit.cover),
+                ],
+              ),
+            );
+    },
+  );
 }

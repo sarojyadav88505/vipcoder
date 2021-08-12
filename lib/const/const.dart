@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 
-String url = "http://192.168.1.3:8000/";
+String url = "http://192.168.1.25:8000/";
 String baseurl = url + "api/";
 
 Color primaryColor = Color(0xff125D98);
 Color ancentColor = Color(0xffF5A962);
-Color boxcolor = Color(0xffFFE194);
-Color upcomingBoxColor = Color(0xff4C4C6D);
-Color trendingBoxColor = Color(0xff5E454B);
 Color textColor = Color(0xffFDEFEF);
 
 // text Editing Controller Enquiry Section

@@ -20,7 +20,7 @@ Widget upComingCourse(BuildContext context) {
         child: SingleChildScrollView(
           child: Container(
               width: MediaQuery.of(context).size.width,
-              height: 150,
+              height: 145,
               child: FutureBuilder(
                 future: getUpcomingCourse(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {

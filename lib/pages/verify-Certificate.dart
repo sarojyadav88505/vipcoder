@@ -37,16 +37,13 @@ class _CertificateScreenState extends State<CertificateScreen> {
               key: _key,
               child: Column(
                 children: [
-                  Container(
-                    width: 390,
-                    height: 250,
-                    // color: Colors.red,
-                    child: Image(
-                      // fit: BoxFit.cover,
-                      image: AssetImage(
-                        'assets/certificate.png',
-                      ),
+                  SizedBox(height: 35),
+                  Image(
+                    // fit: BoxFit.cover,
+                    image: AssetImage(
+                      'assets/certificate.png',
                     ),
+                    width: 290,
                   ),
                   SizedBox(
                     height: 15,
@@ -59,7 +56,7 @@ class _CertificateScreenState extends State<CertificateScreen> {
                     height: 5,
                   ),
                   Text(
-                    "#Note: You Will Found Your Certificate No. in Certificate Provided By 'VIPCODING'",
+                    "#Note: You Will Find Your Certificate No. in Certificate Provided By 'VIPCODING'",
                     style: TextStyle(color: Colors.grey.shade500),
                     textAlign: TextAlign.center,
                   ),
@@ -83,8 +80,9 @@ class _CertificateScreenState extends State<CertificateScreen> {
                     children: [
                       ElevatedButton(
                         style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(primaryColor)),
+                          backgroundColor:
+                              MaterialStateProperty.all(primaryColor),
+                        ),
                         onPressed: () async {
                           if (_key.currentState!.validate()) {
                             var response = await Api()
@@ -93,32 +91,34 @@ class _CertificateScreenState extends State<CertificateScreen> {
 
                             if (data.isEmpty) {
                               showDialog(
-                                  context: context,
-                                  builder: (builder) {
-                                    return AlertDialog(
-                                      title: Text(
-                                        'sorry😢',
-                                        style: TextStyle(fontSize: 28),
+                                context: context,
+                                builder: (builder) {
+                                  return AlertDialog(
+                                    title: Text(
+                                      'sorry😢',
+                                      style: TextStyle(fontSize: 28),
+                                    ),
+                                    content: Container(
+                                      height: 40,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text("Certificate Not Found"),
+                                        ],
                                       ),
-                                      content: Container(
-                                        height: 40,
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("Certificate Not Found"),
-                                          ],
-                                        ),
-                                      ),
-                                      actions: [
-                                        ElevatedButton(
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            },
-                                            child: Text("OK"))
-                                      ],
-                                    );
-                                  });
+                                    ),
+                                    actions: [
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text("OK"),
+                                      )
+                                    ],
+                                  );
+                                },
+                              );
                             } else {
                               showDialog(
                                   context: context,
@@ -128,7 +128,7 @@ class _CertificateScreenState extends State<CertificateScreen> {
                                         'Congratulation🎉',
                                         style: TextStyle(
                                             color: Colors.green,
-                                            fontSize: 28,
+                                            fontSize: 18,
                                             fontWeight: FontWeight.bold),
                                       ),
                                       content: Container(
@@ -145,9 +145,9 @@ class _CertificateScreenState extends State<CertificateScreen> {
                                                   children: [
                                                     TextSpan(
                                                       text:
-                                                          "THIS CERTIFICATE IS PROUDLY PRESENTED TO ",
+                                                          "This certificate number belongs to: ",
                                                       style: TextStyle(
-                                                          color: Colors.green,
+                                                          color: Colors.black,
                                                           fontWeight:
                                                               FontWeight.w400,
                                                           fontSize: 16),
@@ -155,19 +155,15 @@ class _CertificateScreenState extends State<CertificateScreen> {
                                                     TextSpan(
                                                       text: data[0]['name'],
                                                       style: TextStyle(
-                                                          decoration:
-                                                              TextDecoration
-                                                                  .underline,
                                                           color: primaryColor,
                                                           fontWeight:
                                                               FontWeight.w800,
-                                                          fontSize: 22),
+                                                          fontSize: 16),
                                                     ),
                                                     TextSpan(
-                                                      text:
-                                                          " BY VIPCODING FOR SUCCESSFUL COMPLETION OF COURSE ",
+                                                      text: "\n course: ",
                                                       style: TextStyle(
-                                                          color: Colors.green,
+                                                          color: Colors.black,
                                                           fontWeight:
                                                               FontWeight.w400,
                                                           fontSize: 16),
@@ -175,21 +171,19 @@ class _CertificateScreenState extends State<CertificateScreen> {
                                                     TextSpan(
                                                       text: data[0]['course'],
                                                       style: TextStyle(
-                                                          decoration:
-                                                              TextDecoration
-                                                                  .underline,
                                                           color: primaryColor,
                                                           fontWeight:
                                                               FontWeight.w800,
-                                                          fontSize: 22),
+                                                          fontSize: 16),
                                                     ),
                                                     TextSpan(
-                                                        text: '.',
-                                                        style: TextStyle(
-                                                            color: Colors.green,
-                                                            fontWeight:
-                                                                FontWeight.w400,
-                                                            fontSize: 16))
+                                                      text: '.',
+                                                      style: TextStyle(
+                                                          color: Colors.green,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          fontSize: 18),
+                                                    )
                                                   ],
                                                 ),
                                               ),
@@ -199,11 +193,11 @@ class _CertificateScreenState extends State<CertificateScreen> {
                                       ),
                                       actions: [
                                         ElevatedButton(
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            },
-                                            child: Text(
-                                                "verify Another Certificate"))
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text("OK"),
+                                        )
                                       ],
                                     );
                                   });
@@ -213,7 +207,7 @@ class _CertificateScreenState extends State<CertificateScreen> {
                         child: Text(
                           'Verify Now',
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 17),
+                              fontWeight: FontWeight.bold, fontSize: 16),
                         ),
                       ),
                     ],

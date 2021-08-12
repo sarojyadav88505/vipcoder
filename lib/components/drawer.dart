@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:vipcoder/const/const.dart';
 import 'package:vipcoder/pages/verify-Certificate.dart';
+
+void _launchURL(String url) async =>
+    await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
 
 Widget myDrawer(BuildContext context) {
   return Drawer(
@@ -31,14 +35,6 @@ Widget myDrawer(BuildContext context) {
           title: Text("Dashboard"),
         ),
         ListTile(
-          onTap: () {},
-          leading: Icon(
-            Icons.local_offer_sharp,
-            color: primaryColor,
-          ),
-          title: Text("Offers"),
-        ),
-        ListTile(
           onTap: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => CertificateScreen()));
@@ -57,17 +53,7 @@ Widget myDrawer(BuildContext context) {
           ),
           title: Text("Image Gallery"),
         ),
-        Divider(
-          color: primaryColor,
-        ),
-        ListTile(
-          onTap: () {},
-          leading: Icon(
-            Icons.web_sharp,
-            color: primaryColor,
-          ),
-          title: Text("Blog"),
-        ),
+        Divider(),
         ListTile(
           onTap: () {},
           leading: Icon(
@@ -86,7 +72,10 @@ Widget myDrawer(BuildContext context) {
         ),
         Divider(),
         ListTile(
-          onTap: () {},
+          onTap: () {
+            _launchURL("https://facebook.com/enfo404");
+            // print('Saroj');
+          },
           leading: Icon(
             Icons.facebook_sharp,
             color: primaryColor,

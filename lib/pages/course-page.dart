@@ -29,8 +29,6 @@ class _CoursePageState extends State<CoursePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.network(
-                'https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif'),
             FutureBuilder(
               future: getCourses(widget.id!),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -43,6 +41,10 @@ class _CoursePageState extends State<CoursePage> {
                       var mydata = snapshot.data[index];
                       return Card(
                         child: ListTile(
+                          trailing: Icon(
+                            Icons.arrow_right,
+                            size: 30,
+                          ),
                           onTap: () {
                             Navigator.push(
                                 context,
@@ -62,7 +64,7 @@ class _CoursePageState extends State<CoursePage> {
                           title: Text(
                             mydata['name'],
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 22),
+                                fontWeight: FontWeight.bold, fontSize: 16),
                           ),
                           subtitle: Text("Duration: " + mydata['duration']),
                         ),

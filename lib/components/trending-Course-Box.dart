@@ -30,8 +30,8 @@ Widget polularCourseBox(
             Text(
               "$name",
               style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 16,
                   color: Colors.black),
             ),
             Text("Duration: $duration")

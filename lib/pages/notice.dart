@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:vipcoder/api/api.dart';
+import 'package:vipcoder/components/loading_effect.dart';
 import 'package:vipcoder/pages/notice-details-Page.dart';
 
 // ignore: camel_case_types
@@ -31,7 +32,7 @@ class _noticeState extends State<notice> {
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           return snapshot.data == null
               ? Center(
-                  child: CircularProgressIndicator(),
+                  child: loadingEffect(),
                 )
               : ListView.builder(
                   shrinkWrap: true,

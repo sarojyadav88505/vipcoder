@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:vipcoder/api/api.dart';
+import 'package:vipcoder/components/loading_effect.dart';
 import 'package:vipcoder/const/const.dart';
 
 class SyllabusScreen extends StatefulWidget {
@@ -57,7 +58,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Enquiry about👉 " + data['name']),
+                              Text("Enquiry about " + data['name']),
                               Divider(color: ancentColor),
                               TextFormField(
                                 validator: (value) =>
@@ -180,7 +181,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
       ),
       body: isLoading == true
           ? Center(
-              child: CircularProgressIndicator(),
+              child: loadingEffect(),
             )
           : SingleChildScrollView(
               child: Column(

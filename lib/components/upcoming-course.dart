@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:vipcoder/api/api.dart';
+import 'package:vipcoder/components/loading_effect.dart';
 import 'package:vipcoder/components/title.dart';
 import 'package:vipcoder/components/upcoming-course-Box.dart';
 
@@ -49,7 +50,7 @@ Widget upComingCourse(BuildContext context) {
                       child: Image.asset('assets/cry.gif'),
                     );
                   } else {
-                    return Image.asset('assets/loading.gif');
+                    return loadingEffect();
                   }
                 },
               )),

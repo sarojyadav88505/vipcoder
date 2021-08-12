@@ -18,14 +18,16 @@ class NoticePage extends StatelessWidget {
           child: Column(
             children: [
               // image
-              Image.network(this.image!),
+              this.image == null ? SizedBox() : Image.network(this.image!),
               // Title and description
               ListTile(
                 title: Text(
                   this.title!,
                   style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
                 ),
-                subtitle: Html(data: this.description!),
+                subtitle: this.description == null
+                    ? SizedBox()
+                    : Html(data: this.description!),
               )
             ],
           ),

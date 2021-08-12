@@ -45,14 +45,6 @@ Widget myDrawer(BuildContext context) {
           ),
           title: Text("Verify Your Certificate"),
         ),
-        ListTile(
-          onTap: () {},
-          leading: Icon(
-            Icons.image_outlined,
-            color: primaryColor,
-          ),
-          title: Text("Image Gallery"),
-        ),
         Divider(),
         ListTile(
           onTap: () {},

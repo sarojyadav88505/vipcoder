@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:vipcoder/api/api.dart';
 import 'package:vipcoder/components/course-type-Box.dart';
+import 'package:vipcoder/components/loading_effect.dart';
 import 'package:vipcoder/pages/course-page.dart';
 
 Future getCourseType() async {
@@ -56,7 +57,7 @@ Widget courseType(BuildContext context) {
                     child: Image.asset('assets/cry.gif'),
                   );
                 } else {
-                  return Image.asset('assets/loading.gif');
+                  return loadingEffect();
                 }
               },
             )),

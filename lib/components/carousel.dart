@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
 import 'package:vipcoder/api/api.dart';
+import 'package:vipcoder/components/loading_effect.dart';
 import 'package:vipcoder/const/const.dart';
 
 Widget carousel(BuildContext context) {
@@ -17,7 +18,7 @@ Widget carousel(BuildContext context) {
     builder: (BuildContext context, AsyncSnapshot snapshot) {
       return snapshot.data == null
           ? Center(
-              child: CircularProgressIndicator(),
+              child: loadingEffect(),
             )
           : SizedBox(
               height: 250.0,

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:vipcoder/api/api.dart';
+import 'package:vipcoder/components/loading_effect.dart';
 import 'package:vipcoder/components/title.dart';
 import 'package:vipcoder/components/trending-Course-Box.dart';
 
@@ -49,7 +50,7 @@ Widget popularCourse() {
                 return Container(
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
-                  child: Image.asset('assets/loading.gif'),
+                  child: loadingEffect(),
                 );
               }
             },

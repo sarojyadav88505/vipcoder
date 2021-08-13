@@ -3,18 +3,18 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:vipcoder/api/api.dart';
 import 'package:vipcoder/components/loading_effect.dart';
-import 'package:vipcoder/pages/notice-details-Page.dart';
+import 'package:vipcoder/pages/Event-detail-page.dart';
 
-// ignore: camel_case_types
-class notice extends StatefulWidget {
+class EventScreen extends StatefulWidget {
+  const EventScreen({Key? key}) : super(key: key);
+
   @override
-  _noticeState createState() => _noticeState();
+  _EventScreenState createState() => _EventScreenState();
 }
 
-// ignore: camel_case_types
-class _noticeState extends State<notice> {
-  Future getNotice() async {
-    var response = await Api().getData('notice');
+class _EventScreenState extends State<EventScreen> {
+  Future getEvent() async {
+    var response = await Api().getData('event');
     var data = json.decode(response.body)['data'];
     return data;
   }
@@ -23,10 +23,10 @@ class _noticeState extends State<notice> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notices'),
+        title: Text('Events'),
       ),
       body: FutureBuilder(
-        future: getNotice(),
+        future: getEvent(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           return snapshot.data == null
               ? Center(
@@ -47,7 +47,7 @@ class _noticeState extends State<notice> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => NoticePage(
+                                  builder: (context) => EventsDetailsPage(
                                     title: mydata['title'], //constructor
                                     description: mydata['description'],
                                     image: mydata['image'],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:vipcoder/const/const.dart';
 import 'package:widget_circular_animator/widget_circular_animator.dart';
 
@@ -22,17 +23,16 @@ Widget testimonialBox(BuildContext context, String name, String status,
                 children: [
                   Text(
                     "$name",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                   Text(
                     "$status",
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 16,
+                        fontSize: 14,
                         color: primaryColor),
                   ),
-                  SizedBox(height: 10),
-                  Text("$description"),
+                  Html(data: '$description'),
                 ],
               ),
             ),

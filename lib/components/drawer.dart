@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vipcoder/const/const.dart';
+import 'package:vipcoder/pages/Notes-download.dart';
+import 'package:vipcoder/pages/event.dart';
 import 'package:vipcoder/pages/verify-Certificate.dart';
 
 void _launchURL(String url) async =>
@@ -13,7 +15,7 @@ Widget myDrawer(BuildContext context) {
         UserAccountsDrawerHeader(
           currentAccountPicture: CircleAvatar(
             child: Text(
-              "VIP",
+              "CC",
               style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
@@ -21,8 +23,8 @@ Widget myDrawer(BuildContext context) {
             ),
             backgroundColor: Colors.blue[100],
           ),
-          accountName: Text("VIPCODING"),
-          accountEmail: Text("vipcoding.np@gmail.com"),
+          accountName: Text("CarelessCoder"),
+          accountEmail: Text("CarelessCoder.np@gmail.com"),
         ),
         ListTile(
           onTap: () {
@@ -47,7 +49,10 @@ Widget myDrawer(BuildContext context) {
         ),
         Divider(),
         ListTile(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => EventScreen()));
+          },
           leading: Icon(
             Icons.emoji_events_outlined,
             color: primaryColor,
@@ -55,7 +60,10 @@ Widget myDrawer(BuildContext context) {
           title: Text("Events"),
         ),
         ListTile(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => NotesDownload()));
+          },
           leading: Icon(
             Icons.download,
             color: primaryColor,

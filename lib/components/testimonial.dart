@@ -2,13 +2,15 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:vipcoder/api/api.dart';
+import 'package:vipcoder/components/loading_effect.dart';
 import 'package:vipcoder/components/testimonial-Box.dart';
 import 'package:vipcoder/components/title.dart';
 
 Future getTestimonial() async {
-  var response = await Api().getData('testimonials');
-  var data = json.decode(response.body);
+  var response = await Api().getData('testimonial');
+  var data = json.decode(response.body)['data'];
   return data;
+  // print(data);
 }
 
 Widget testimonial(BuildContext context) {
@@ -30,11 +32,12 @@ Widget testimonial(BuildContext context) {
                     itemBuilder: (BuildContext context, int index) {
                       var mydata = snapshot.data[index];
                       return testimonialBox(
-                          context,
-                          mydata['name'],
-                          mydata['status'],
-                          mydata['description'],
-                          mydata['image']);
+                        context,
+                        mydata['name'],
+                        mydata['status'],
+                        mydata['description'],
+                        mydata['image'],
+                      );
                     },
                   );
                 } else if (snapshot.hasError) {
@@ -44,7 +47,7 @@ Widget testimonial(BuildContext context) {
                     child: Image.asset('assets/cry.gif'),
                   );
                 } else {
-                  return Image.asset('assets/loading.gif');
+                  return loadingEffect();
                 }
               },
             )),

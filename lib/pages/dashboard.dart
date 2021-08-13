@@ -3,6 +3,7 @@ import 'package:vipcoder/components/blog.dart';
 import 'package:vipcoder/components/carousel.dart';
 import 'package:vipcoder/components/course-type.dart';
 import 'package:vipcoder/components/drawer.dart';
+import 'package:vipcoder/components/testimonial.dart';
 import 'package:vipcoder/components/trending-course.dart';
 import 'package:vipcoder/components/upcoming-course.dart';
 import 'package:vipcoder/pages/notice.dart';
@@ -25,6 +26,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       upComingCourse(context);
       popularCourse();
       blog();
+      testimonial(context);
       setState(() {});
     });
   }
@@ -88,9 +90,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 upComingCourse(context),
                 // Popular Courses
                 popularCourse(),
-                // testimonial(context),
                 // blog
-                blog()
+                blog(),
+                testimonial(context),
               ],
             ),
           ),

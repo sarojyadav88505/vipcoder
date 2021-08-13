@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:vipcoder/api/api.dart';
 import 'package:vipcoder/components/title.dart';
+import 'package:vipcoder/const/const.dart';
 import 'package:vipcoder/pages/blogPage.dart';
 
 Future getBlog() async {
@@ -27,7 +28,7 @@ Widget blog() {
               itemBuilder: (BuildContext context, int index) {
                 var mydata = snapshot.data[index];
                 return Card(
-                  // color: primaryColor,
+                  color: textColor,
                   child: ListTile(
                     onTap: () {
                       Navigator.push(

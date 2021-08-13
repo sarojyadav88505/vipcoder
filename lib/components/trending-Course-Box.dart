@@ -14,6 +14,7 @@ Widget polularCourseBox(
                   )));
     },
     child: Card(
+      // color: Colors.grey[100],
       child: Container(
         height: double.infinity,
         width: double.infinity,

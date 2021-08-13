@@ -95,7 +95,7 @@ Widget upComingCourseBox(BuildContext context, int courseID, String name,
                   child: Text(
                     "Apply Now",
                     style: TextStyle(
-                        fontWeight: FontWeight.bold, color: ancentColor),
+                        fontWeight: FontWeight.bold, color: textColor),
                   ),
                   onPressed: () {
                     showDialog(

@@ -29,6 +29,9 @@ dependencies:
   flutter_html: ^2.1.0
   url_launcher: ^6.0.9
   gradient_ui_widgets: ^1.0.2-nullsafety
+  flutter_awesome_buttons: ^1.1.0
+  font_awesome_flutter: ^9.1.0
+  animated_text_kit: ^4.2.1
 
 
   # The following adds the Cupertino Icons font to your application.

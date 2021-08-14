@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:vipcoder/components/blog.dart';
 import 'package:vipcoder/components/carousel.dart';
@@ -6,6 +7,7 @@ import 'package:vipcoder/components/drawer.dart';
 import 'package:vipcoder/components/testimonial.dart';
 import 'package:vipcoder/components/trending-course.dart';
 import 'package:vipcoder/components/upcoming-course.dart';
+import 'package:vipcoder/const/const.dart';
 import 'package:vipcoder/pages/notice.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -33,6 +35,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
+    DateTime? lastPressed; // LastPressed Variable For Double Tap to Close
     return Scaffold(
         // Start Bottom NavigationBar is Used For Company Highlight
         // bottomNavigationBar: Container(
@@ -61,7 +64,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
         // Bottom NAvigationBar End
         drawer: myDrawer(context), //mydrawer widget is in component folder
         appBar: AppBar(
-          title: Text("Careless-Coder"),
+          title: AnimatedTextKit(
+            repeatForever: true,
+            animatedTexts: [
+              ColorizeAnimatedText(
+                'CarelessCoder',
+                textStyle: colorizeTextStyle,
+                colors: colorizeColors,
+              ),
+            ],
+            isRepeatingAnimation: true,
+            onTap: () {
+              print("Tap Event");
+            },
+          ),
           actions: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -79,21 +95,45 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
         body: RefreshIndicator(
           onRefresh: refresh,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                // Slider Component
-                carousel(context),
-                // Course Type Components
-                courseType(context),
-                // Upcoming Courses Components
-                upComingCourse(context),
-                // Popular Courses
-                popularCourse(),
-                // blog
-                blog(),
-                testimonial(context),
-              ],
+          child: WillPopScope(
+            onWillPop: () async {
+              final now = DateTime.now();
+              final maxDuration = Duration(seconds: 2);
+              final isWarning = lastPressed == null ||
+                  now.difference(lastPressed!) > maxDuration;
+              if (isWarning) {
+                lastPressed = DateTime.now();
+
+                final snackBar = SnackBar(
+                  content: Text('Double Tap To Close App'),
+                  duration: maxDuration,
+                );
+
+                ScaffoldMessenger.of(context)
+                  ..removeCurrentSnackBar()
+                  ..showSnackBar(snackBar);
+                return false;
+              } else {
+                return true;
+              }
+            },
+            // Code end Here of DOuble tap
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  // Slider Component
+                  carousel(context),
+                  // Course Type Components
+                  courseType(context),
+                  // Upcoming Courses Components
+                  upComingCourse(context),
+                  // Popular Courses
+                  popularCourse(),
+                  // blog
+                  blog(),
+                  testimonial(context),
+                ],
+              ),
             ),
           ),
         ));

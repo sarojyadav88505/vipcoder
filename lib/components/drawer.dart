@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vipcoder/const/const.dart';
 import 'package:vipcoder/pages/Notes-download.dart';
+import 'package:vipcoder/pages/about-us.dart';
 import 'package:vipcoder/pages/event.dart';
 import 'package:vipcoder/pages/verify-Certificate.dart';
 
@@ -92,12 +96,28 @@ Widget myDrawer(BuildContext context) {
           title: Text("Feedback"),
         ),
         ListTile(
-          onTap: () {},
+          title: Text("About us"),
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => AboutUsPage()));
+          },
           leading: Icon(
             Icons.info_outline,
             color: primaryColor,
           ),
-          title: Text("About us"),
+        ),
+        Divider(),
+        ListTile(
+          title: Text("Exit"),
+          onTap: () {
+            if (Platform.isAndroid) {
+              SystemNavigator.pop();
+            }
+          },
+          leading: Icon(
+            Icons.logout,
+            color: primaryColor,
+          ),
         ),
       ],
     ),

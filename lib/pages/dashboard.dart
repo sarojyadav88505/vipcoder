@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:vipcoder/components/blog.dart';
+import 'package:vipcoder/components/blogBox.dart';
+import 'package:vipcoder/components/blogs.dart';
 import 'package:vipcoder/components/carousel.dart';
 import 'package:vipcoder/components/course-type.dart';
 import 'package:vipcoder/components/drawer.dart';
@@ -27,7 +28,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       courseType(context);
       upComingCourse(context);
       popularCourse();
-      blog();
+      blogs();
       testimonial(context);
       setState(() {});
     });
@@ -130,7 +131,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   // Popular Courses
                   popularCourse(),
                   // blog
-                  blog(),
+                  blogs(),
                   testimonial(context),
                 ],
               ),

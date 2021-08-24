@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:vipcoder/components/blogBox.dart';
 import 'package:vipcoder/components/blogs.dart';
 import 'package:vipcoder/components/carousel.dart';
 import 'package:vipcoder/components/course-type.dart';
@@ -27,11 +27,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
       carousel(context);
       courseType(context);
       upComingCourse(context);
-      popularCourse();
-      blogs();
+      popularCourse(context);
+      blogs(context);
       testimonial(context);
       setState(() {});
     });
+  }
+
+  late FirebaseMessaging push;
+  firebase() {
+    push = FirebaseMessaging.instance;
+    push.getToken().then((value) {
+      print(value);
+    });
+    FirebaseMessaging.onMessage.listen((event) {
+      print(event.data.toString());
+    });
+
+    FirebaseMessaging.onMessageOpenedApp.listen((event) {
+      print(event.data.toString());
+    });
+  }
+
+  @override
+  void initState() {
+    // ignore: todo
+    // TODO: implement initState
+    super.initState();
   }
 
   @override
@@ -129,9 +151,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   // Upcoming Courses Components
                   upComingCourse(context),
                   // Popular Courses
-                  popularCourse(),
+                  popularCourse(context),
                   // blog
-                  blogs(),
+                  blogs(context),
                   testimonial(context),
                 ],
               ),

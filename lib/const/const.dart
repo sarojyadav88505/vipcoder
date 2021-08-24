@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-String url = "http://192.168.1.14:8000/";
+String url = "http://192.168.1.12:8000/";
 String baseurl = url + "api/";
 
 // Color primaryColor = Color(0xffF5A962);

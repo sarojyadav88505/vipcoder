@@ -20,7 +20,7 @@
         </queries>
 
    <application
-        android:label="vipcoder"
+        android:label="eZone"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -46,7 +46,7 @@ Widget testimonialBox(BuildContext context, String name, String status,
                   outerColor: primaryColor,
                   outerIconsSize: 3,
                   innerIconsSize: 3,
-                  size: 130,
+                  size: 125,
                   child: Container(
                     child: CircleAvatar(
                       // radius: 75,

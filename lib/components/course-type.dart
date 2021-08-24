@@ -27,29 +27,33 @@ Widget courseType(BuildContext context) {
               future: getCourseType(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 if (snapshot.hasData) {
-                  return ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: snapshot.data.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      var mydata = snapshot.data[index];
-                      return InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => CoursePage(
-                                name: mydata['name'],
-                                id: mydata['id'],
+                  return snapshot.data == null
+                      ? Center(
+                          child: loadingEffect(),
+                        )
+                      : ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: snapshot.data.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            var mydata = snapshot.data[index];
+                            return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => CoursePage(
+                                      name: mydata['name'],
+                                      id: mydata['id'],
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: courseTypeBox(
+                                mydata['name'],
                               ),
-                            ),
-                          );
-                        },
-                        child: courseTypeBox(
-                          mydata['name'],
-                        ),
-                      );
-                    },
-                  );
+                            );
+                          },
+                        );
                 } else if (snapshot.hasError) {
                   return Container(
                     height: MediaQuery.of(context).size.height,

@@ -6,8 +6,6 @@ import 'package:vipcoder/components/loading_effect.dart';
 import 'package:vipcoder/pages/Event-detail-page.dart';
 
 class EventScreen extends StatefulWidget {
-  const EventScreen({Key? key}) : super(key: key);
-
   @override
   _EventScreenState createState() => _EventScreenState();
 }

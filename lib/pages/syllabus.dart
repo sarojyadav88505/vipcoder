@@ -219,22 +219,6 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                             ),
                           ),
                         ),
-                        Expanded(
-                          child: Container(
-                            padding: EdgeInsets.fromLTRB(0, 25, 10, 10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  "Fee: NPR." + data['fee'].toString(),
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                   ),

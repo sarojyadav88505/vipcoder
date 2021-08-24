@@ -21,12 +21,12 @@ Widget carousel(BuildContext context) {
               child: loadingEffect(),
             )
           : SizedBox(
-              height: 250.0,
+              height: 200.0,
               width: MediaQuery.of(context).size.width,
               child: Carousel(
                 dotBgColor: Colors.transparent,
                 dotPosition: DotPosition.bottomLeft,
-                dotSize: 5,
+                dotSize: 0.5,
                 dotSpacing: 10,
                 animationDuration: Duration(seconds: 1),
                 images: [

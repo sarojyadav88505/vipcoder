@@ -56,10 +56,9 @@ Widget upComingCourse(BuildContext context) {
                         );
                 } else if (snapshot.hasError) {
                   return Container(
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    child: Image.asset('assets/cry.gif'),
-                  );
+                      height: MediaQuery.of(context).size.height,
+                      width: MediaQuery.of(context).size.width,
+                      child: Text('Check Your Internet Connectivity!!!'));
                 } else {
                   return loadingEffect();
                 }

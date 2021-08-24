@@ -81,9 +81,9 @@ class _CoursePageState extends State<CoursePage> {
                           },
                         );
                 } else if (snapshot.hasError) {
-                  return Text("Error");
+                  return Text("Check Your Internet Connection!!!");
                 } else {
-                  return Image.asset('assets/loading.gif');
+                  return loadingEffect();
                 }
               },
             )

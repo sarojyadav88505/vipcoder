@@ -48,7 +48,7 @@ Widget blogs(BuildContext context) {
                       },
                     );
             } else if (snapshot.hasError) {
-              return Text('Check Your Internet Connection!');
+              return Text('Check Your Internet Connectivity!');
             } else {
               return Center(
                 child: loadingEffect(),

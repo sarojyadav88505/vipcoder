@@ -50,7 +50,7 @@ class _AllBlogState extends State<AllBlog> {
                           },
                         );
                 } else if (snapshot.hasError) {
-                  return Text('Check Your Internet Connection!');
+                  return Text('Check Your Internet Connection!!!');
                 } else {
                   return Center(
                     child: loadingEffect(),

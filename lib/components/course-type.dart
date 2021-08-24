@@ -58,7 +58,7 @@ Widget courseType(BuildContext context) {
                   return Container(
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
-                    child: Image.asset('assets/cry.gif'),
+                    child: Text('Check Your Internet Connectivity'),
                   );
                 } else {
                   return loadingEffect();

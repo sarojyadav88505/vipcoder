@@ -59,7 +59,7 @@ class _AllTrendingCourseState extends State<AllTrendingCourse> {
                     return Container(
                       height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
-                      child: Text('Check Your Internet Connectivity'),
+                      child: Text('Check Your Internet Connectivity!!!'),
                     );
                   } else {
                     return Container(

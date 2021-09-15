@@ -15,19 +15,22 @@ class BlogPage extends StatelessWidget {
           title: Text(this.title!),
         ),
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              // image
-              Image.network(this.image!),
-              // Title and description
-              ListTile(
-                title: Text(
-                  this.title!,
-                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
-                ),
-                subtitle: Html(data: this.description!),
-              )
-            ],
+          child: InteractiveViewer(
+            panEnabled: false,
+            child: Column(
+              children: [
+                // image
+                Image.network(this.image!),
+                // Title and description
+                ListTile(
+                  title: Text(
+                    this.title!,
+                    style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
+                  ),
+                  subtitle: Html(data: this.description!),
+                )
+              ],
+            ),
           ),
         ),
       ),

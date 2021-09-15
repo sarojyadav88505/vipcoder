@@ -43,7 +43,7 @@ Widget blogs(BuildContext context) {
                             context,
                             mydata['title'],
                             mydata['description'],
-                            mydata['image'],
+                            mydata['image'].toString(),
                             mydata['created_at']);
                       },
                     );

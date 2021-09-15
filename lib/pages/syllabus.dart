@@ -223,7 +223,12 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                     ),
                   ),
                   // Syllabus Content
-                  Html(data: data['syllabus'])
+                  InteractiveViewer(
+                    panEnabled: false,
+                    child: Html(
+                      data: data['syllabus'],
+                    ),
+                  )
                 ],
               ),
             ),

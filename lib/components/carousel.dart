@@ -30,7 +30,7 @@ Widget carousel(BuildContext context) {
                 dotSpacing: 10,
                 animationDuration: Duration(seconds: 1),
                 images: [
-                  Image.network(url + snapshot.data[0]['image'],
+                  Image.network(url + snapshot.data[0]['image'].toString(),
                       fit: BoxFit.cover),
                   Image.network(url + snapshot.data[1]['image'],
                       fit: BoxFit.cover),

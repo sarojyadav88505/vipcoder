@@ -7,22 +7,25 @@ Widget blogBox(BuildContext context, String title, String description,
   return Card(
     color: textColor,
     child: ListTile(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => BlogPage(
-              title: title, //constructor
-              description: description,
-              image: image,
+      leading: GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => BlogPage(
+                title: title, //constructor
+                description: description,
+                image: image,
+              ),
             ),
+          );
+        },
+        child: Container(
+          child: Image.network(
+            '$image',
+            fit: BoxFit.cover,
           ),
-        );
-      },
-      leading: Container(
-        child: Image.network(
-          '$image',
-          fit: BoxFit.cover,
         ),
       ),
       title: Text('$title'),
